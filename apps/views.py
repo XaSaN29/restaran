@@ -30,6 +30,8 @@ class IndexViewFast(ListView):
 
 
 
+
+
 class OrderView(DetailView):
     template_name = 'order.html'
     model = Order
