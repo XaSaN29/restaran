@@ -136,5 +136,28 @@ class WishlistView(LoginRequiredMixin, ListView):
     context_object_name = 'wishlist'
 
 
+def send_message(chat_id, message):
+    url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
+    params = {
+        'chat_id': chat_id,
+        'text': message
+    }
+    response = get(url, params=params)
+    print(response.text, response.status_code)
 
+def send_msg_bot(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        text = f'''
+Name: {name}
+Email: {email}
+Subject: {subject}
+Message: {message}
+        '''
+        send_message(867549831, text)
+
+        return render(request, 'contact.html')
 

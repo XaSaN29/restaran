@@ -26,7 +26,7 @@ from apps.views import (
     TeamView, TestimonialView, LoginView,
     RegisterView, LogoutView, WishlistView,
     IndexViewMilliy, OrderView,
-    IndexViewPizza
+    IndexViewPizza, send_msg_bot
 )
 
 urlpatterns = [
@@ -59,7 +59,7 @@ urlpatterns = [
 
     path('wishlist/', WishlistView.as_view(), name='wishlist'),
 
-
+    path('send_msg_bot/', send_msg_bot, name='send_msg_bot'),
 ]
 
 if settings.DEBUG:
