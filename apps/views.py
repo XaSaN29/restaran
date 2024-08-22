@@ -27,12 +27,7 @@ class IndexViewFast(ListView):
         return context
 
 
-
-
-
-
-
-class OrderView(DetailView):
+class OrderView(ListView):
     template_name = 'order.html'
     model = Order
 
